@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #e6d5b8;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin-right: 20px;
+}
+
+.logo img {
+    width: 75px;
+    height: auto;
+}
+
+nav ul li a {
+    display: inline-block; /* Cambiado a inline-block para permitir transformación sin mover otros botones */
+    padding: 5px 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    transition: border 0.3s ease, transform 0.3s ease;
+    border: 1px solid transparent; /* Comienza sin borde visible */
+}
+
+/* Agrandamiento suave y bordes al pasar el mouse */
+nav ul li a:hover {
+    transform: scale(1.1); /* Agranda el botón */
+    border-color: black;   /* Aparecen los bordes negros */
+    border-radius: 0px;    /* Bordes completamente rectos */
+}
+
+/* Evita que otros botones se muevan */
+nav ul li {
+    display: inline-block; /* Asegura que los elementos no se muevan */
+    margin: 0 15px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Usa flexbox para mejor control del layout */
+    justify-content: space-between; /* Espaciado entre los botones */
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ajusta según el tamaño deseado */
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 1s ease-in-out; /* Transición para el cambio de imagen */
+    width: 100%;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que las imágenes cubran el contenedor */
+}
+
+/* Botones de navegación */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    color: rgb(160, 160, 160);
+    font-size: 36px; /* Tamaño de las flechas */
+    transition: 0.6s ease;
+    user-select: none;
+    background-color: transparent; /* Sin fondo */
+    border: none; /* Sin borde */
+    transform: translateY(-50%); /* Centra verticalmente */
+}
+
+.prev:hover, .next:hover {
+    color: #5e5e5e;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
