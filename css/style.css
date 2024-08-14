@@ -54,23 +54,57 @@ nav ul {
     justify-content: space-between; /* Espaciado entre los botones */
 }
 
+/* Ajustes generales para el slider */
 .slider {
     position: relative;
     width: 100%;
-    height: 100vh; /* Ajusta según el tamaño deseado */
+    height: 100vh; /* Toda la pantalla */
     overflow: hidden;
 }
 
 .slides {
     display: flex;
-    transition: transform 1s ease-in-out; /* Transición para el cambio de imagen */
-    width: 100%;
+    transition: transform 1s ease-in-out;
+    width: 100%; /* Ajuste de ancho para todas las imágenes */
+}
+
+.slide {
+    position: relative;
+    flex: 0 0 100%; /* Cada imagen ocupa 100% del ancho del slider */
+    height: 100%;
 }
 
 .slides img {
     width: 100%;
+    height: 100vh; /* Ocupa todo el contenedor en altura */
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ajusta el ancho del área de texto */
     height: 100%;
-    object-fit: cover; /* Asegura que las imágenes cubran el contenedor */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 50px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1),  rgba(0, 0, 0, 0)); /* Difuminado negro */
+}
+
+.slider-title {
+    font-size: 4rem;
+    color: white;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.slider-description {
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
 }
 
 /* Botones de navegación */
