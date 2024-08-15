@@ -5,7 +5,49 @@ body {
     margin: 0;
     padding: 0;
 }
+/* Estilo inicial del encabezado */
+#mainHeader {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    z-index: 100;
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;
+}
 
+.navbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin: 0 15px; /* Espaciado entre botones */
+}
+
+.navbar ul li a {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Lemon Milk';
+}
+  
+/* Estilo cuando se hace scroll */
+.header-scrolled {
+    background-color: #f5e0b3; /* Color crema */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+  
 header {
     background-color: #e6d5b8;
     padding: 20px;
@@ -15,7 +57,8 @@ header {
 }
 
 .logo {
-    margin-right: 20px;
+    position: absolute;
+    left: 20px;
 }
 
 .logo img {
@@ -26,9 +69,9 @@ header {
 nav ul li a {
     display: inline-block; /* Cambiado a inline-block para permitir transformación sin mover otros botones */
     padding: 5px 10px;
-    color: black;
+    color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     transition: border 0.3s ease, transform 0.3s ease;
     border: 1px solid transparent; /* Comienza sin borde visible */
 }
@@ -36,7 +79,7 @@ nav ul li a {
 /* Agrandamiento suave y bordes al pasar el mouse */
 nav ul li a:hover {
     transform: scale(1.1); /* Agranda el botón */
-    border-color: black;   /* Aparecen los bordes negros */
+    border-color: white;   /* Aparecen los bordes negros */
     border-radius: 0px;    /* Bordes completamente rectos */
 }
 

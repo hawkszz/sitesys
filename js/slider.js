@@ -26,3 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlides();
     setInterval(autoSlides, 5000); // Cambia cada 5 segundos
 });
+window.addEventListener("scroll", function() {
+    const header = document.getElementById("mainHeader");
+    if (window.scrollY > 50) {
+      header.classList.add("header-scrolled");
+    } else {
+      header.classList.remove("header-scrolled");
+    }
+  });
+  
