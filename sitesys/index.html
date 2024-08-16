@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiteSys Web & Systems</title>
+    <link rel="icon" href="img/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilo opcional para desplazamiento suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .section-content {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .section-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .section-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .section-content p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Funciones y variables del slider
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.slider .slides');
+            
+            function showSlides() {
+                if (slides.length > 0) {
+                    // Calcula el nuevo desplazamiento
+                    const offset = -slideIndex * 100;
+                    slides.forEach(slide => {
+                        slide.style.transform = `translateX(${offset}%)`;
+                    });
+                }
+            }
+        
+            function plusSlides(n) {
+                slideIndex = (slideIndex + n + slides.length) % slides.length;
+                showSlides();
+            }
+        
+            function autoSlides() {
+                slideIndex = (slideIndex + 1) % slides.length;
+                showSlides();
+            }
+        
+            // Inicializa la presentación automática y muestra la primera imagen
+            showSlides();
+            setInterval(autoSlides, 5000); // Cambia cada 5 segundos
+        
+            // Agrega eventos de clic para las flechas de navegación
+            const prev = document.querySelector('#servicios .prev');
+            const next = document.querySelector('#servicios .next');
+            if (prev && next) {
+                prev.addEventListener('click', () => plusSlides(-1));
+                next.addEventListener('click', () => plusSlides(1));
+            }
+        
+            // Maneja el cambio de estilo del encabezado al hacer scroll
+            window.addEventListener("scroll", () => {
+                const header = document.getElementById("mainHeader");
+                if (window.scrollY > 50) {
+                    header.classList.add("header-scrolled");
+                } else {
+                    header.classList.remove("header-scrolled");
+                }
+            });
+        });
+        </script>
+    <header id="mainHeader">
+        <div class="logo">
+            <img src="img/1723594542787.png" alt="Logo de la Empresa">
+        </div>        
+        <nav class="navbar">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio">
+        <div class="slider">
+            <div class="slides">
+                <div class="slide">
+                    <img src="img/pexels-fotios-photos-2363482.jpg" alt="Imagen 1">
+                    <div class="overlay">
+                        <h1 class="slider-title">Título 1</h1>
+                        <p class="slider-description">Descripción para la imagen 1.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/pexels-goumbik-574069.jpg" alt="Imagen 2">
+                    <div class="overlay">
+                        <h1 class="slider-title">Título 2</h1>
+                        <p class="slider-description">Descripción para la imagen 2.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/pexels-monoar-rahman-22660-109371.jpg" alt="Imagen 3">
+                    <div class="overlay">
+                        <h1 class="slider-title">Título 3</h1>
+                        <p class="slider-description">Descripción para la imagen 3.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)"><i class="fas fa-chevron-left"></i></a>
+            <a class="next" onclick="plusSlides(1)"><i class="fas fa-chevron-right"></i></a>
+        </div>    
+    </section>
+</section>
+
+
+    <!-- Sección Servicios -->
+<section id="servicios" class="section-dark-orange">
+    <h2>Nuestros Servicios</h2>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="img/pexels-luis-gomes-166706-546819.jpg" alt="Desarrollo de Sitios Webs">
+                <div class="overlay">
+                    <h1 class="slider-title">Desarrollo de Sitios Webs</h1>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="img/pexels-mikhail-nilov-6963944.jpg" alt="Creación de sistemas informáticos">
+                <div class="overlay">
+                    <h1 class="slider-title">Creación de Sistemas Informáticos</h1>
+                </div>
+            </div>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)"><i class="fas fa-chevron-left"></i></a>
+        <a class="next" onclick="plusSlides(1)"><i class="fas fa-chevron-right"></i></a>
+    </div>
+</section>
+
+<section id="nosotros"> 
+    <div class="section-dark-orange">
+    <div class="section-content">
+        <h2>Nosotros</h2>
+        <div class="about-us">
+            <p>En SiteSys Web & Systems, nos especializamos en desarrollar soluciones digitales a medida, diseñando sistemas eficientes y páginas web personalizadas que potencian tu presencia en línea. Nuestro equipo combina creatividad y tecnología para entregar productos que no solo cumplen, sino que superan las expectativas de nuestros clientes. Ya sea que necesites una página web atractiva o un sistema robusto para tu empresa, estamos aquí para hacerlo realidad.</p>
+        </div>
+</section>
+
+<section id="contacto" class="section-dark-orange">
+    <h2>Contáctanos</h2>
+    <div class="contact-info">
+                <p><i class="fas fa-phone-alt"></i> Teléfono: <a href="https://wa.me/595987314895">+595 987 314895</a></p>
+                <p><i class="fas fa-envelope"></i> Correo: <a href="mailto:sitesysweb@gmail.com">sitesysweb@gmail.com</a></p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/595987314895">+595 987 314895</a></p>
+                <p><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/Sitesystems">@Sitesystems</a></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/slider.js"></script>
+</body>
+</html>
+
