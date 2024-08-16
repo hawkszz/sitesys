@@ -1,54 +1,55 @@
-let slideIndex = 0;
-const slides = document.querySelectorAll('#servicios .slides'); // Asegúrate de que este selector apunte a la sección correcta
-const slideImages = document.querySelectorAll('#servicios .slides img'); // Imágenes dentro de la sección Servicios
+const sliders = document.querySelectorAll('.slider'); // Selecciona todos los sliders en la página
 
-function showSlides() {
-    if (slideImages.length > 0) {
-        const offset = -slideIndex * 100;
-        slides.forEach(slide => {
-            slide.style.transform = `translateX(${offset}%)`;
-        });
+// Mantenemos un índice de cada slider
+const slideIndexes = Array.from({ length: sliders.length }, () => 0);
+
+function showSlides(slider, index) {
+    const slides = slider.querySelectorAll('.slide');
+    if (slides.length > 0) {
+        const offset = -index * 100;
+        slider.querySelector('.slides').style.transform = `translateX(${offset}%)`;
     }
 }
 
-function plusSlides(n) {
-    slideIndex = (slideIndex + n + slideImages.length) % slideImages.length;
-    showSlides();
+function plusSlides(n, slider, sliderIndex) {
+    const slides = slider.querySelectorAll('.slide');
+    slideIndexes[sliderIndex] = (slideIndexes[sliderIndex] + n + slides.length) % slides.length;
+    showSlides(slider, slideIndexes[sliderIndex]);
 }
 
 // Configura el slider para cambiar automáticamente cada 5 segundos
-function autoSlides() {
-    slideIndex = (slideIndex + 1) % slideImages.length;
-    showSlides();
+function autoSlides(slider, sliderIndex) {
+    const slides = slider.querySelectorAll('.slide');
+    slideIndexes[sliderIndex] = (slideIndexes[sliderIndex] + 1) % slides.length;
+    showSlides(slider, slideIndexes[sliderIndex]);
 }
 
-// Inicia la presentación automática y muestra la primera imagen
+// Inicia la presentación automática y configura eventos de clic para las flechas
 document.addEventListener('DOMContentLoaded', () => {
-    showSlides();
-    setInterval(autoSlides, 5000); // Cambia cada 5 segundos
+    sliders.forEach((slider, index) => {
+        showSlides(slider, slideIndexes[index]); // Muestra la primera diapositiva
 
-    // Agrega eventos de clic para las flechas de navegación en la sección Servicios
-    const prev = document.querySelector('#servicios .prev');
-    const next = document.querySelector('#servicios .next');
-    if (prev && next) {
-        prev.addEventListener('click', () => plusSlides(-1));
-        next.addEventListener('click', () => plusSlides(1));
-    }
+        // Configura el cambio automático cada 5 segundos
+        setInterval(() => autoSlides(slider, index), 5000); 
+
+        const prev = slider.querySelector('.prev');
+        const next = slider.querySelector('.next');
+
+        if (prev && next) {
+            prev.addEventListener('click', () => plusSlides(-1, slider, index));
+            next.addEventListener('click', () => plusSlides(1, slider, index));
+        }
+    });
 });
-
 // Maneja el cambio de estilo del encabezado al hacer scroll
-window.addEventListener("scroll", function() {
-    const header = document.getElementById("mainHeader");
-    if (window.scrollY > 50) {
-        header.classList.add("header-scrolled");
-    } else {
-        header.classList.remove("header-scrolled");
-    }
+document.addEventListener("DOMContentLoaded", function() {
+    window.addEventListener("scroll", function() {
+        const header = document.getElementById("mainHeader");
+        console.log(window.scrollY); // Verifica el valor del scroll
+        if (window.scrollY > 50) {
+            header.classList.add("header-scrolled");
+        } else {
+            header.classList.remove("header-scrolled");
+        }
+    });
 });
-
-
-
-
-
-
-  

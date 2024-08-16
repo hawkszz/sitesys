@@ -6,20 +6,25 @@ body {
     padding: 0;
 }
 /* Estilo inicial del encabezado */
+html { 
+    scroll-behavior: smooth;
+}
 #mainHeader {
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     padding: 20px;
-    background-color: transparent;
     transition: background-color 0.3s ease;
     z-index: 100;
     display: flex;
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center;
 }
-
+.header-scrolled {
+    background-color: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 .navbar {
     display: flex;
     justify-content: center;
@@ -40,20 +45,6 @@ body {
     text-decoration: none;
     color: black;
     font-family: 'Lemon Milk';
-}
-  
-/* Estilo cuando se hace scroll */
-.header-scrolled {
-    background-color: #f5e0b3; /* Color crema */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-  
-header {
-    background-color: #e6d5b8;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .logo {
@@ -151,7 +142,7 @@ nav ul {
 }
 
 /* Botones de navegación */
-.prev, .next {
+#inicio .prev, #inicio .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -166,15 +157,15 @@ nav ul {
     transform: translateY(-50%); /* Centra verticalmente */
 }
 
-.prev:hover, .next:hover {
+#inicio .prev:hover, #inicio .next:hover {
     color: #5e5e5e;
 }
 
-.prev {
+#inicio .prev {
     left: 0;
 }
 
-.next {
+#inicio .next {
     right: 0;
 }
 
@@ -240,20 +231,6 @@ nav ul {
     color: #333;
 }
 /* Estilo inicial del encabezado */
-#mainHeader {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    padding: 20px;
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .navbar {
     display: flex;
     justify-content: center;
@@ -299,10 +276,6 @@ nav ul {
     justify-content: space-between;
 }
 
-.header-scrolled {
-    background-color: #f5e0b3;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 .section-dark-orange {
     background-color: #fcf1e1; 
     color: #333333; 
