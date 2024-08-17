@@ -53,3 +53,30 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+document.getElementById("phoneLink").addEventListener("click", function(event) {
+    event.preventDefault(); // Evitar que se abra el enlace
+    const phoneNumber = this.innerText; // Obtener el texto del enlace (número de teléfono)
+
+    navigator.clipboard.writeText(phoneNumber).then(function() {
+        // Mostrar el mensaje de éxito
+        const statusMessage = document.getElementById("status");
+        statusMessage.style.display = "block"; // Mostrar el mensaje
+        statusMessage.innerText = "Número copiado al portapapeles.";
+
+        // Ocultar el mensaje después de 3 segundos
+        setTimeout(function() {
+            statusMessage.style.display = "none";
+        }, 3000);
+    }).catch(function(error) {
+        // Manejar errores
+        const statusMessage = document.getElementById("status");
+        statusMessage.style.display = "block";
+        statusMessage.innerText = "Error al copiar el número.";
+        console.error("Error al copiar: ", error);
+
+        // Ocultar el mensaje después de 3 segundos
+        setTimeout(function() {
+            statusMessage.style.display = "none";
+        }, 3000);
+    });
+});
